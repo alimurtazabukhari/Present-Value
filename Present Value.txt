@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class PresentValueCalculator {
+
+    public static double presentValue(double futureValue, double annualRate, int years) {
+        return futureValue / Math.pow(1 + annualRate, years);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter desired future value (e.g., 10000): ");
+        double futureValue = scanner.nextDouble();
+
+        System.out.print("Enter annual interest rate (e.g., 0.05 for 5%): ");
+        double rate = scanner.nextDouble();
+
+        System.out.print("Enter number of years: ");
+        int years = scanner.nextInt();
+
+        double present = presentValue(futureValue, rate, years);
+        System.out.printf("You need to deposit: $%.2f today%n", present);
+    }
+}
